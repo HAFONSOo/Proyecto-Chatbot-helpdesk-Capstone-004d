@@ -1,13 +1,38 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render,redirect
+from .forms import FormularioIniciar
+from django.contrib.auth import authenticate, login ,logout
 
-@api_view(["POST"])
-def rut_login(request):
-    rut = request.data.get("rut")
-    password = request.data.get("password")
-    user = authenticate(request, username=rut, password=password)  # si USERNAME_FIELD es rut
-    if user:
-        login(request, user)
-        return Response({"status":"ok", "user_id": user.id})
-    return Response({"error":"invalid_credentials"}, status=400)
+def ver_iniciar(request):
+    if request.user.is_authenticated:
+        return redirect('principal')
+    if request.method == 'GET':
+        contexto = {
+            'formulario':FormularioIniciar(),
+        }
+        return render(request,'chatbot/chatbot.html',contexto)
+    if request.method == 'POST':
+        datos_usuario = FormularioIniciar(data = request.POST)
+        es_valido = datos_usuario.is_valid()
+        if es_valido:
+            usuario = authenticate(
+                username = datos_usuario.cleaned_data['usuario'],
+                password = datos_usuario.cleaned_data['contrasena']
+            )
+            if usuario is not None:
+                login(request, usuario)
+                success(request, f'Bienvenido {usuario.username}')
+                return redirect('principal')
+            msg_error='Error en usuario o contraseña'
+                
+        warning(request, 'Usuario y/o contraseña invalido(s) :(')
+        contexto = {
+            'formulario': datos_usuario,
+            'msg_error':msg_error
+    
+        }
+        return render(request,'chatbot/chatbot.html',contexto)
+def fun_cerrar(request):
+    if request.user.is_authenticated:
+        logout(request)
+        success(request, 'Sesión cerrada ')
+    return redirect('')

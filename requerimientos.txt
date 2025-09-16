@@ -1,0 +1,10 @@
+Django>=4.2
+djangorestframework
+psycopg2-binary
+celery[redis]
+redis
+requests
+python-dotenv
+openai
+django-cors-headers
+djangorestframework-simplejwt

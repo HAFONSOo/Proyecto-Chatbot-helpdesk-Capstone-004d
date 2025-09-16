@@ -14,6 +14,7 @@ from datetime import timedelta
 from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv
+from os.path import join
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuario',
     'helpdesk',
-    'chat_bot',
+    
 
 ]
 
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'chatbot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "",
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 CELERY_BROKER_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")

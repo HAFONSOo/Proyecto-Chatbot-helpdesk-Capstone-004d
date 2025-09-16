@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body class="fondo-imagen custom-font">
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="container-xl mt-5">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3  mt-5 rounded-5" style="backdrop-filter: blur(15px); ">
+                <div class="row">
+                    <div class="col-xl-12 mt-2">
+                        <p class="text-center text-danger mt-2">{{msg_error}}</p>
+                        <div class="custom-bg-r rounded-5 text-center d-flex justify-content-around p-2">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5509/5509636.png" alt="Bootstrap" width="40" height="40">
+                            <h1>Inicio de sesion</h1>
+                            <img src="https://cdn-icons-png.flaticon.com/512/5509/5509636.png" alt="Bootstrap" width="40" height="40">
+                        </div>
+                    </div>
+                    <fieldset class="col-xl-12  text-center mt-4">
+                        <div class="custom-bg rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.usuario.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.usuario}}
+        
+                        <p class="invalid-feedback">
+                            {{ formulario.usuario.error }}
+                        </p>
+                    </fieldset>
+        
+                    <fieldset class="col-xl-12  text-center mt-4">
+                        <div class="custom-bg rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.contrasena.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.contrasena}}
+
+                        <a class="nav-link navbar-brand mt-2 user-select-none" style="color: rgb(213, 255, 205);" id="boton">
+                            <div class="d-flex justify-content-center">
+                                <div class="p-2"><img src="https://icons.veryicon.com/png/o/internet--web/property-2/closed-eyes.png" alt="Bootstrap" width="30" height="30" id="img"></div>
+                                <div class="p-2"><h2>Ver contraseña</h2></div>
+                            
+                            </div>
+                                
+                        </a>
+
+       
+                        <p class="invalid-feedback">
+                            {{ formulario.contrasena.error }}
+                        </p>
+                    </fieldset>
+        
+                    <fieldset class="col-xl-8 offset-xl-2 mt-4">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary custom-bg" role="submit" type="submit">Iniciar Sesion</button>
+                        </div>
+                    </fieldset> 
+                    <fieldset class="col-xl-12  p-2 mt-4  text-center">
+                            <a class="link-warning" href="{% url 'registro' %}">Registrarse...</a>
+                            
+                    </fieldset> 
+                </div>
+            </div>
+            
+
+            
+
+        </div>
+    </div>
+</form>
+
+</body>
+</body>
+</html>
