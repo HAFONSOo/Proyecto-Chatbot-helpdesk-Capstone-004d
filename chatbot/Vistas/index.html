@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Import correcto de Material Symbols -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+</head>
+
+<body>
+<body>
+  <!-- Caja completa del chatbot -->
+  <div class="chatbot-main">
+    
+    <!-- Header -->
+    <div class="chatbot-header">
+      <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" width="40" height="40" viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-1.084A5 5 0 0010 11z"
+          clip-rule="evenodd" />
+      </svg>
+      <h1 class="logo-text">Chatbot</h1>
+      <button class="material-symbols-rounded">expand_more</button>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="chat-body">
+      <div class="mensaje bot-mensaje">
+        <p>Hola! Somos Implementos Epysa! <br> ¿En qué podemos ayudarte?</p>
+      </div>
+      <div class="mensaje usuario-mensaje">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, atque!</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="chatbot-footer">
+      <form action="#" class="chat-form">
+        <textarea placeholder="Escribe tu consulta:" class="mensaje-input"></textarea>
+        <div class="controles">
+          <button class="material-symbols-rounded" type="button">sentiment_satisfied</button>
+          <button class="material-symbols-rounded" type="button">attach_file</button>
+          <button class="material-symbols-rounded" type="submit">arrow_upward</button>
+        </div>
+      </form>
+    </div>
+
+  </div> <!-- cierre de chatbot-main -->
+</body>
+
+</html>
